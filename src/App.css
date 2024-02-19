@@ -1,0 +1,29 @@
+.closemenu {
+  /* z-index: 9999 !important; */
+  font-weight: bold;
+  font-size: 22px;
+  cursor: pointer;
+}
+.ps-sidebar-container {
+  background-color: transparent !important;
+  z-index: 99999 !important;
+}
+.ps-sidebar-container .ps-menu-root ul {
+  padding: 0 4px !important  ;
+}
+.ps-sidebar-container .ps-menu-root ul .ps-menu-button {
+  margin: 5px 0px;
+}
+.ps-menu-button:hover {
+  color: #e05170 !important;
+  background-color: transparent !important;
+}
+.ps-menu-root .ps-active {
+  color: #e05170 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  #header {
+    display: none;
+  }
+}
