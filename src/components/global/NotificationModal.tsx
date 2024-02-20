@@ -15,7 +15,7 @@ const NotificationModal = ({ isOpen, closeModal }: NotificationModalProps) => {
     <>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>
-          <div className="fixed sm:top-14 top-28 left-2 sm:right-40">
+          <div className="fixed sm:top-14 top-32 sm:right-44">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -44,28 +44,32 @@ const NotificationModal = ({ isOpen, closeModal }: NotificationModalProps) => {
                       11
                     </Typography>
                   </Box>
-                  <Box height='300px' overflow='auto'>
-                  {notificationData.map((notification) => (
-                    <Link to="#" key={notification.id} className="hover:text-[#D74772]">
-                      <Box display="flex" p={2}>
-                        <Box display="flex" gap={1}>
-                          {notification.avatar}
+                  <Box height="300px" overflow="auto">
+                    {notificationData.map((notification) => (
+                      <Link
+                        to="#"
+                        key={notification.id}
+                        className="hover:text-[#D74772]"
+                      >
+                        <Box display="flex" p={2}>
+                          <Box display="flex" gap={1}>
+                            {notification.avatar}
+                            <Box>
+                              <Typography variant="subtitle1" fontWeight="bold">
+                                {notification.name}
+                              </Typography>
+                              <Typography variant="subtitle1">
+                                {notification.notify}
+                              </Typography>
+                            </Box>
+                          </Box>
                           <Box>
-                            <Typography variant="subtitle1" fontWeight="bold">
-                              {notification.name}
-                            </Typography>
-                            <Typography variant="subtitle1">
-                              {notification.notify}
-                            </Typography>
+                            <Typography>{notification.time}</Typography>
                           </Box>
                         </Box>
-                        <Box>
-                          <Typography>{notification.time}</Typography>
-                        </Box>
-                      </Box>
-                      <Divider/>
-                    </Link>
-                  ))}
+                        <Divider />
+                      </Link>
+                    ))}
                   </Box>
                   <Box
                     display="flex"
