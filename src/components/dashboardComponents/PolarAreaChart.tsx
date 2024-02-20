@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import { ApexChartProps, PolarChartData } from "../../constants/types";
 
 const PolarAreaChart: React.FC<ApexChartProps> = () => {
-  const [chartData, setChartData] = useState<PolarChartData>({
+  const [chartData] = useState<PolarChartData>({
     series: [42, 47, 52, 58, 65],
     options: {
       chart: {
@@ -48,7 +48,7 @@ const PolarAreaChart: React.FC<ApexChartProps> = () => {
     <div>
       <div id="chart">
         <ReactApexChart
-          options={chartData.options}
+           options={chartData.options as ReactApexChart["props"]["options"]}
           series={chartData.series}
           type="polarArea"
           height={350}

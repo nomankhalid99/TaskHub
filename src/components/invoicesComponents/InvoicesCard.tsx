@@ -14,7 +14,7 @@ const InvoicesCard: React.FC = () => {
     indexOfLastInvoice
   );
 
-  const paginate = (event: React.ChangeEvent<unknown>, pageNumber: number) =>
+  const paginate = (_: React.ChangeEvent<unknown>, pageNumber: number) =>
     setCurrentPage(pageNumber);
 
   return (

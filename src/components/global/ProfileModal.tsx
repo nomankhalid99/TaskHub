@@ -17,9 +17,8 @@ import {
   Avatar,
 } from "@mui/material";
 import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+// import { yupResolver } from "@hookform/resolvers/yup";
 import CustomButton from "./CustomButton";
-// import CustomButton from "../components/global/CustomButton";
 
 interface ProfileModalProps {
   isOpen: boolean;
@@ -51,6 +50,26 @@ const ProfileModal = ({ isOpen, closeModal }: ProfileModalProps) => {
   const [avatarSrc, setAvatarSrc] = useState<string>(
     "https://pixelwibes.com/template/my-task/html/dist/assets/images/lg/avatar3.jpg"
   );
+
+  const customResolver = async (data: FormData) => {
+    try {
+      await schema.validate(data, { abortEarly: false });
+      return {
+        values: data,
+        errors: {},
+      };
+    } catch (validationErrors) {
+      const errors = (validationErrors as yup.ValidationError).inner.reduce(
+        (acc: any, error: any) => ({ ...acc, [error.path!]: error.message }),
+        {}
+      );
+      return {
+        values: {},
+        errors,
+      };
+    }
+  };
+
   const {
     handleSubmit,
     control,
@@ -66,8 +85,9 @@ const ProfileModal = ({ isOpen, closeModal }: ProfileModalProps) => {
       confirmPassword: "12345678",
       image: null,
     },
-    resolver: yupResolver(schema),
+    resolver: customResolver,
   });
+
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -193,8 +213,6 @@ const ProfileModal = ({ isOpen, closeModal }: ProfileModalProps) => {
                               fullWidth
                               placeholder="Enter Name"
                               variant="outlined"
-                              // error={!!errors.name}
-                              // helperText={errors.name?.message}
                             />
                           )}
                         />
@@ -217,8 +235,6 @@ const ProfileModal = ({ isOpen, closeModal }: ProfileModalProps) => {
                               fullWidth
                               placeholder="Enter Email"
                               variant="outlined"
-                              // error={!!errors.email}
-                              // helperText={errors.email?.message}
                             />
                           )}
                         />
@@ -241,8 +257,6 @@ const ProfileModal = ({ isOpen, closeModal }: ProfileModalProps) => {
                               fullWidth
                               placeholder="Enter usrename"
                               variant="outlined"
-                              // error={!!errors.username}
-                              // helperText={errors.username?.message}
                             />
                           )}
                         />
@@ -264,8 +278,6 @@ const ProfileModal = ({ isOpen, closeModal }: ProfileModalProps) => {
                               fullWidth
                               placeholder="Enter Address"
                               variant="outlined"
-                              // error={!!errors.address}
-                              // helperText={errors.address?.message}
                             />
                           )}
                         />
