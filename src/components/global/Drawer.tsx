@@ -1,10 +1,8 @@
 import * as React from "react";
 import Drawer from "@mui/material/Drawer";
-import { useState } from "react";
 import { Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { FaList, FaUsers } from "react-icons/fa";
 import {
-  LuArrowBigRightDash,
   LuArrowBigLeftDash,
   LuClipboardSignature,
 } from "react-icons/lu";
@@ -24,12 +22,7 @@ const TemporaryDrawer: React.FC<TemporaryDrawerProps> = ({
   isOpen,
   toggleDrawer,
 }) => {
-  const [menuCollapse, setMenuCollapse] = useState(false);
   const location = useLocation();
-
-  const menuIconClick = () => {
-    setMenuCollapse((prevMenuCollapse) => !prevMenuCollapse);
-  };
 
   const isMenuItemActive = (path: string) => {
     return location.pathname === path;
@@ -90,90 +83,100 @@ const TemporaryDrawer: React.FC<TemporaryDrawerProps> = ({
                 </Box>
               </Box>
               <Menu className="text-lg h-[280px] overflow-y-auto">
-            <MenuItem
-              active={isMenuItemActive("/")}
-              icon={<AiFillHome fontSize="22px" />}
-            >
-              <Link to="/">Dashboard</Link>
-            </MenuItem>
-            <MenuItem
-              active={isMenuItemActive("/projects")}
-              icon={<FaToolbox fontSize="22px" />}
-            >
-              <Link to="/projects">Projects</Link>
-            </MenuItem>
-            <MenuItem
-              active={isMenuItemActive("/tasks")}
-              icon={<FaList fontSize="22px" />}
-            >
-              <Link to="/tasks">Tasks</Link>
-            </MenuItem>
-            {menuCollapse ? (
-              <MenuItem icon={<FaUsers fontSize="22px" />}>Members</MenuItem>
-            ) : (
-              <SubMenu label="Members" icon={<FaUsers fontSize="22px" />}>
-                <Link to="/leaders">
-                  <MenuItem active={isMenuItemActive("/leaders")}>
-                    Leaders
-                  </MenuItem>
-                </Link>
-                <Link to="/employees">
-                  <MenuItem active={isMenuItemActive("/employees")}>
-                    Employees
-                  </MenuItem>
-                </Link>
-                <Link to="/employee-profile">
-                  <MenuItem active={isMenuItemActive("/employee-profile")}>
-                    Employee Profile
-                  </MenuItem>
-                </Link>
-              </SubMenu>
-            )}
-            {menuCollapse ? (
-              <MenuItem icon={<IoCalculatorOutline fontSize="22px" />}>
-                Accounts
-              </MenuItem>
-            ) : (
-              <SubMenu
-                label="Accounts"
-                icon={<IoCalculatorOutline fontSize="22px" />}
-              >
-                <Link to="/invoices">
-                  <MenuItem active={isMenuItemActive("/invoices")}>
-                    Invoices
-                  </MenuItem>
-                </Link>
-                <Link to="/payments">
-                  <MenuItem active={isMenuItemActive("/payments")}>
-                    Payments
-                  </MenuItem>
-                </Link>
-                <Link to="/expenses">
-                  <MenuItem active={isMenuItemActive("/expenses")}>
-                    Expenses
-                  </MenuItem>
-                </Link>
-                <Link to="/create-invoice">
-                  <MenuItem active={isMenuItemActive("/create-invoice")}>
-                    Create Invoice
-                  </MenuItem>
-                </Link>
-              </SubMenu>
-            )}
-          </Menu>
+                <MenuItem
+                  active={isMenuItemActive("/")}
+                  icon={<AiFillHome fontSize="22px" />}
+                  onClick={() => toggleDrawer(false)}
+                >
+                  <Link to="/">Dashboard</Link>
+                </MenuItem>
+                <MenuItem
+                  active={isMenuItemActive("/projects")}
+                  icon={<FaToolbox fontSize="22px" />}
+                  onClick={() => toggleDrawer(false)}
+                >
+                  <Link to="/projects">Projects</Link>
+                </MenuItem>
+                <MenuItem
+                  active={isMenuItemActive("/tasks")}
+                  icon={<FaList fontSize="22px" />}
+                  onClick={() => toggleDrawer(false)}
+                >
+                  <Link to="/tasks">Tasks</Link>
+                </MenuItem>
+                <SubMenu label="Members" icon={<FaUsers fontSize="22px" />}>
+                  <Link to="/leaders">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/leaders")}
+                    >
+                      Leaders
+                    </MenuItem>
+                  </Link>
+                  <Link to="/employees">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/employees")}
+                    >
+                      Employees
+                    </MenuItem>
+                  </Link>
+                  <Link to="/employee-profile">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/employee-profile")}
+                    >
+                      Employee Profile
+                    </MenuItem>
+                  </Link>
+                </SubMenu>
+                <SubMenu
+                  label="Accounts"
+                  icon={<IoCalculatorOutline fontSize="22px" />}
+                >
+                  <Link to="/invoices">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/invoices")}
+                    >
+                      Invoices
+                    </MenuItem>
+                  </Link>
+                  <Link to="/payments">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/payments")}
+                    >
+                      Payments
+                    </MenuItem>
+                  </Link>
+                  <Link to="/expenses">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/expenses")}
+                    >
+                      Expenses
+                    </MenuItem>
+                  </Link>
+                  <Link to="/create-invoice">
+                    <MenuItem
+                      onClick={() => toggleDrawer(false)}
+                      active={isMenuItemActive("/create-invoice")}
+                    >
+                      Create Invoice
+                    </MenuItem>
+                  </Link>
+                </SubMenu>
+              </Menu>
               <Box
                 className="closemenu"
                 display="flex"
                 justifyContent="space-around"
                 alignItems="center"
                 marginTop={9}
-                onClick={menuIconClick}
+                onClick={() => toggleDrawer(false)}
               >
-                {menuCollapse ? (
-                  <LuArrowBigRightDash fontSize="30px" />
-                ) : (
-                  <LuArrowBigLeftDash fontSize="30px" />
-                )}
+                <LuArrowBigLeftDash fontSize="30px" />
               </Box>
             </Box>
           </Drawer>

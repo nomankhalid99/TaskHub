@@ -15,7 +15,7 @@ const NotificationModal = ({ isOpen, closeModal }: NotificationModalProps) => {
     <>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-50" onClose={closeModal}>
-          <div className="fixed top-14 right-40">
+          <div className="fixed sm:top-14 top-28 left-2 sm:right-40">
             <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
@@ -27,7 +27,7 @@ const NotificationModal = ({ isOpen, closeModal }: NotificationModalProps) => {
                 leaveFrom="opacity-100 scale-100"
               >
                 <Dialog.Panel
-                  className="relative w-full max-w-[400px] max-h-[90vh] overflow-y-auto transform rounded-md bg-[#F9FBFD] text-left 
+                  className="relative w-full sm:max-w-[400px] max-w-[300px] max-h-[90vh] overflow-y-auto transform rounded-md bg-[#F9FBFD] text-left 
                 shadow-xl transition-all flex flex-col "
                 >
                   <Box

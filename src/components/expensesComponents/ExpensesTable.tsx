@@ -27,12 +27,12 @@ const ExpensesTable: React.FC<ExpensesExtendsTableProps> = ({
     {
       field: "item",
       headerName: "Item",
-      flex: 1,
+      width: 200
     },
     {
       field: "orderBy",
       headerName: "Ordered By",
-      flex: 1,
+      width: 250,
       renderCell: ({ row }) => (
         <Box display="flex" alignItems="center">
           <Avatar src={row.avatar} alt={row.orderBy} />
@@ -45,6 +45,7 @@ const ExpensesTable: React.FC<ExpensesExtendsTableProps> = ({
     {
       field: "date",
       headerName: "Date",
+      width:160,
       type: "number",
       headerAlign: "center",
       align: "center",
@@ -52,12 +53,14 @@ const ExpensesTable: React.FC<ExpensesExtendsTableProps> = ({
     {
       field: "from",
       headerName: "From",
+      width:160,
       headerAlign: "left",
       align: "left",
     },
     {
       field: "status",
       headerName: "Status",
+      width:160,
       headerAlign: "center",
       align: "center",
       renderCell: ({ row }) => {
@@ -91,7 +94,6 @@ const ExpensesTable: React.FC<ExpensesExtendsTableProps> = ({
       headerName: "Actions",
       headerAlign: "center",
       align: "center",
-      flex: 1,
       renderCell: (params) => {
         const id = params.row.id;
         return (
@@ -149,8 +151,9 @@ const ExpensesTable: React.FC<ExpensesExtendsTableProps> = ({
           fontSize: "16px",
         },
       }}
-    >
+      >
       <DataGrid
+        sx={{width:"full"}}
         rows={expenses}
         columns={columns}
         initialState={{

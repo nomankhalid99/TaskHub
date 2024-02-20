@@ -7,24 +7,25 @@ const ProjectTable = () => {
     {
       field: "title",
       headerName: "Title",
-      flex: 1,
+      width:280
     },
     {
       field: "dateStart",
       headerName: "Date-Start",
       type: "number",
+      width:130,
       headerAlign: "left",
       align: "left",
     },
     {
       field: "deadline",
       headerName: "Deadline",
-      flex: 1,
+      width:200
     },
     {
       field: "leader",
       headerName: "Leader",
-      flex: 1,
+      width:320,
       renderCell: ({ row }) => (
         <Box display="flex" alignItems="center">
           <Avatar src={row.avatarUrl} alt={row.leader} />
@@ -37,7 +38,7 @@ const ProjectTable = () => {
       headerName: "Stage",
       headerAlign: "center",
       align: "center",
-      flex: 1,
+      width:130,
       renderCell: ({ row }) => {
         const { stage } = row;
         return (

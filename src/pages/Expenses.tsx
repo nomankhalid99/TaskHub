@@ -50,7 +50,7 @@ const Expenses: React.FC<Props> = ({menuCollapse}) => {
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item sx={{overflowX:"scroll"}} xs={12}>
         <Divider />
         <ExpensesTable
          expenses={expenses}

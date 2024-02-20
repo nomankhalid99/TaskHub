@@ -142,7 +142,6 @@ const Topbar: React.FC<Props> = ({menuCollapse}) => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              {/* <Link to="/profile"> */}
                 <MenuItem onClick={() => setIsProfileModalOpen(true)}>
                   <Avatar
                     className="border"
@@ -159,7 +158,6 @@ const Topbar: React.FC<Props> = ({menuCollapse}) => {
                     </Typography>
                   </Box>
                 </MenuItem>
-              {/* </Link> */}
               <Divider />
               <Link to="/tasks">
                 <MenuItem onClick={handleClose}>

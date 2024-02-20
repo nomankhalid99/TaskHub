@@ -19,7 +19,7 @@ const LeaderTable: React.FC<LeaderProps> = ({ onInviteClick }) => {
     {
       field: "leader",
       headerName: "Leader",
-      flex: 1,
+      width:190,
       renderCell: ({ row }) => (
         <Box display="flex" alignItems="center">
           <Avatar src={row.avatar} alt={row.leader} />
@@ -32,17 +32,17 @@ const LeaderTable: React.FC<LeaderProps> = ({ onInviteClick }) => {
     {
       field: "project",
       headerName: "Project",
-      flex: 1,
+      width:170,
     },
     {
       field: "tasks",
       headerName: "Total Task",
-      flex: 1,
+      width:110,
     },
     {
       field: "email",
       headerName: "Email",
-      flex: 1,
+      width:190,
     },
     {
       field: "assigned",
@@ -50,12 +50,12 @@ const LeaderTable: React.FC<LeaderProps> = ({ onInviteClick }) => {
       type: "number",
       headerAlign: "left",
       align: "left",
-      flex: 1,
+      width:150
     },
     {
       field: "staff",
       headerName: "Assigned Staff",
-      flex: 1,
+      width:190,
       renderCell: ({ row }) => {
         const { staff } = row;
         console.log("Staff:", staff);
@@ -92,7 +92,7 @@ const LeaderTable: React.FC<LeaderProps> = ({ onInviteClick }) => {
       headerName: "Status",
       headerAlign: "center",
       align: "center",
-      flex: 1,
+      width:150,
       renderCell: ({ row }) => {
         const { status } = row;
         console.log("Stage:", status);

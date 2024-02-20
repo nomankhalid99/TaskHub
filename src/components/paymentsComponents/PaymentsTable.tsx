@@ -22,12 +22,12 @@ const PaymentsTable: React.FC = () => {
     {
       field: "project",
       headerName: "Project",
-      flex: 1,
+      width:200,
     },
     {
       field: "client",
       headerName: "Client Name",
-      flex: 1,
+      width:190,
     },
     {
       field: "dateStart",
@@ -35,19 +35,20 @@ const PaymentsTable: React.FC = () => {
       type: "number",
       headerAlign: "left",
       align: "left",
-      flex: 1,
+      width:170,
     },
     {
       field: "dateEnd",
       headerName: "Date-End",
       type: "number",
+      width:170,
       headerAlign: "left",
       align: "left",
-      flex: 1,
     },
     {
       field: "amount",
       headerName: "Amount",
+      width:170,
       type: "number",
       headerAlign: "center",
       align: "center",
@@ -56,8 +57,8 @@ const PaymentsTable: React.FC = () => {
       field: "status",
       headerName: "Status",
       headerAlign: "center",
+      width:170,
       align: "center",
-      flex: 1,
       renderCell: ({ row }) => {
         const { status } = row;
         return (

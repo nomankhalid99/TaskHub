@@ -141,7 +141,7 @@ const Column: React.FC<ColumnProps> = ({ column, tasks }) => {
                       justifyContent="space-between"
                       alignItems="center"
                     >
-                      <Box display="flex" alignItems="center" gap={1}>
+                      <Box display="flex" alignItems="center" gap={0.4}>
                         <TiFlag />
                         <Typography fontWeight={200} variant="body2">
                           {task.date}

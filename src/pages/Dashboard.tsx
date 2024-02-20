@@ -7,19 +7,24 @@ import PolarAreaChart from "../components/dashboardComponents/PolarAreaChart";
 import DashboardForm from "../components/dashboardComponents/DashboardForm";
 import { projectData, taskData } from "../data/mockData";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
-    menuCollapse: boolean;
+  menuCollapse: boolean;
 }
 
-const Dashboard: React.FC<Props> = ({menuCollapse}) => {
-  
+const Dashboard: React.FC<Props> = ({ menuCollapse }) => {
   useEffect(() => {
-    document.title = "TaskHub"
-  }, [])
+    document.title = "TaskHub";
+  }, []);
   return (
     <>
-      <Grid container mb={2} sx={{ pl: { xs: 0, lg: menuCollapse ? 14 : 36 }}} spacing={2}>
+      <Grid
+        container
+        mb={2}
+        sx={{ pl: { xs: 0, lg: menuCollapse ? 14 : 36 } }}
+        spacing={2}
+      >
         {taskData.map((item) => (
           <Grid item key={item.title} md={4} sm={6} xs={12}>
             <Box
@@ -55,16 +60,23 @@ const Dashboard: React.FC<Props> = ({menuCollapse}) => {
                     {item.amount}
                   </Typography>
                 </Box>
-                <Box>
-                  <TbArrowBadgeRightFilled fontSize="54px" />
-                </Box>
+                <Link to="/tasks">
+                  <Box>
+                    <TbArrowBadgeRightFilled fontSize="54px" />
+                  </Box>
+                </Link>
               </Box>
             </Box>
           </Grid>
         ))}
         <Grid item md={7} xs={12}>
-          <Grid container border={1}
-            borderColor="#F0F0F0" bgcolor="white" sx={{ p: 2, borderRadius: 2 }}>
+          <Grid
+            container
+            border={1}
+            borderColor="#F0F0F0"
+            bgcolor="white"
+            sx={{ p: 2, borderRadius: 2 }}
+          >
             <Grid
               item
               order={{ sm: 1, xs: 2 }}
@@ -137,8 +149,13 @@ const Dashboard: React.FC<Props> = ({menuCollapse}) => {
           </Box>
         </Grid>
         <Grid item md={8} xs={12}>
-          <Box bgcolor={"white"} border={1}
-            borderColor="#F0F0F0" p={3} borderRadius={2}>
+          <Box
+            bgcolor={"white"}
+            border={1}
+            borderColor="#F0F0F0"
+            p={3}
+            borderRadius={2}
+          >
             <Typography variant="h6" fontWeight="bold">
               Project Timeline
             </Typography>
@@ -164,8 +181,13 @@ const Dashboard: React.FC<Props> = ({menuCollapse}) => {
           </Grid>
         ))}
         <Grid item xs={12}>
-          <Box bgcolor="white" border={1}
-            borderColor="#F0F0F0" borderRadius={2} p={3}>
+          <Box
+            bgcolor="white"
+            border={1}
+            borderColor="#F0F0F0"
+            borderRadius={2}
+            p={3}
+          >
             <Typography variant="h6" fontWeight="bold">
               Projects Information
             </Typography>
