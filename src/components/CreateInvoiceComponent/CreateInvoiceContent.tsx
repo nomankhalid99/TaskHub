@@ -84,13 +84,13 @@ Phone: (620) 528-2614`);
             py={2}
             flexDirection="column"
           >
-            <Typography variant="subtitle1" fontWeight="lighter">
+            <Typography variant="subtitle1">
               Invoice #
             </Typography>
-            <Typography variant="subtitle1" fontWeight="lighter">
+            <Typography variant="subtitle1">
               Date
             </Typography>
-            <Typography variant="subtitle1" fontWeight="lighter">
+            <Typography variant="subtitle1">
               Balance Due
             </Typography>
           </Box>

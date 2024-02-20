@@ -143,7 +143,7 @@ const Column: React.FC<ColumnProps> = ({ column, tasks }) => {
                     >
                       <Box display="flex" alignItems="center" gap={0.4}>
                         <TiFlag />
-                        <Typography fontWeight={200} variant="body2">
+                        <Typography variant="body2">
                           {task.date}
                         </Typography>
                         <MdMessage />
